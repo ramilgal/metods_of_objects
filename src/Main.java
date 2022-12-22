@@ -13,9 +13,16 @@ public class Main {
         employees[7] = new Employee("Васильев Петр Иванович", 1, 27000);
         employees[8] = new Employee("Захаров Павел Сергеевич", 3, 46500);
         employees[9] = new Employee("Павлов Иван Сергеевич", 5, 41500);
+        //Вывожу в консоль список всех сотрудников со всеми полями в одну строку
         System.out.println(Arrays.toString(employees));
+        //Вывожу в консоль список всех сотрудников со всеми полями в отдельные строки
         Employee.printAllEmployees(employees);
-
+        //Считаю сумму затрат на зарплату всего и вывожу в консоль
+        int sum = 0;
+        for (int i = 0; i < employees.length; i++) {
+            sum = sum + employees[i].getSalary();
+        }
+        System.out.println(sum);
 
 
 
