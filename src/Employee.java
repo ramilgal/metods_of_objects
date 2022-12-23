@@ -44,12 +44,6 @@ public class Employee {
                 ", отдел: " + dept +
                 ", зарплата: " + salary;
     }
-    public static void printAllEmployees(Employee[] employees) {
-            for (Employee i : employees) {
-            System.out.println(i + " ");
-            }
-            System.out.println();
-    }
 }
 
 

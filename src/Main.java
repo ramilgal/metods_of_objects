@@ -27,48 +27,21 @@ public class Main {
         calculateAverageSalary(employees);
         //Печать только ФИО Сотрудников
         printOnlyNamesOfEmployees(employees);
-
-
-
-
-
-
-        System.out.println("Домашнее задание");
-        Author author = new Author("Алексей", "Толстой");
-        Author author1 = new Author("Лев", "Толстой");
-        Book book = new Book("Петр 1", 1850, new Author(author.getNameOfAuthor(), author.getSureNameOfAuthor()));
-        Book book1 = new Book("Война и мир", 1851, new Author(author1.getNameOfAuthor(), author1.getSureNameOfAuthor()));
-        System.out.println("Название книги: " + book.getNameOfBook());
-        System.out.println("Имя автора: " + author.getNameOfAuthor());
-        System.out.println("Фамилия автора: " + author.getSureNameOfAuthor());
-        System.out.println("Год издания: " + book.getPublishingYear());
-        System.out.println("Название книги: " + book1.getNameOfBook());
-        System.out.println("Имя автора: " + author1.getNameOfAuthor());
-        System.out.println("Фамилия автора: " + author1.getSureNameOfAuthor());
-        System.out.println("Год издания: " + book1.getPublishingYear());
-        book1.setPublishingYear(2000);
-        System.out.println("Год издания: " + book1.getPublishingYear());
-        System.out.println();
-        System.out.println("Домашнее задание 2 с применением toString и других");
-        System.out.println();
-        System.out.println(book);
-        System.out.println(book1);
-        System.out.println(book.equals(book1));
-        System.out.println(author.equals(author1));
     }
-
+    //Метод распечатать всех сотрудников
     public static void printAllEmployees(Employee[] employees) {
         for (Employee i : employees) {
             System.out.println(i + " ");
         }
         System.out.println();
     }
+    //Метод напечатать только ФИО
     public static void printOnlyNamesOfEmployees(Employee[] employees) {
         for (Employee employee : employees) {
             System.out.println("ФИО: " + employee.getFullName());
         }
     }
-
+//метод посчитать общую сумму затрат на зарплату
     public static void calculateSumOfAllSalary(Employee[] employees) {
         int sum = 0;
         for (Employee employee : employees) {
@@ -76,19 +49,19 @@ public class Main {
         }
         System.out.println("Сумма затрат на зарплату сотрудников: " + sum);
     }
+    //Метод найти сотрудника с минимальной зарплатой
     public static void getSalaryMinimum(Employee[] employees) {
         int salaryMinimum = 1000000000;
         String person = null;
         for (Employee employee : employees) {
-
             if (employee.getSalary() < salaryMinimum) {
                 salaryMinimum = employee.getSalary();
                 person = employee.getFullName();
             }
-
         }
         System.out.println("Минимальная зарплата: " + salaryMinimum + ", сотрудник: " + person);
     }
+    //Метод найти сотрудника с максимальной зарплатой
     public static void getSalaryMaximum(Employee[] employees) {
         int salaryMaximum = 0;
         String person = null;
@@ -100,6 +73,7 @@ public class Main {
         }
         System.out.println("Максимальная зарплата: " + salaryMaximum + ", сотрудник: " + person);
     }
+    //Метод подсчета средней зарплаты
     public static void calculateAverageSalary(Employee[] employees) {
         int sum = 0;
         int averageSalary = 0;
