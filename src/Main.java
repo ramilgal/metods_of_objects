@@ -29,8 +29,7 @@ public class Main {
         printOnlyNamesOfEmployees(employees);
 
 
-        long number = 5;
-        calculateNumber(number);
+
 
 
 
@@ -109,12 +108,5 @@ public class Main {
             averageSalary = sum / employees.length;
         }
         System.out.println("Средняя зарплата: " + averageSalary);
-    }
-
-    public static
-    void calculateNumber(long number) {
-        long result = number * number;
-        System.out.println(result);
-
     }
 }
