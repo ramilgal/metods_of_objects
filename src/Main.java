@@ -51,7 +51,7 @@ public class Main {
     }
     //Метод найти сотрудника с минимальной зарплатой
     public static void getSalaryMinimum(Employee[] employees) {
-        int salaryMinimum = 1000000000;
+        int salaryMinimum = Integer.MAX_VALUE;
         String person = null;
         for (Employee employee : employees) {
             if (employee.getSalary() < salaryMinimum) {
@@ -76,11 +76,11 @@ public class Main {
     //Метод подсчета средней зарплаты
     public static void calculateAverageSalary(Employee[] employees) {
         int sum = 0;
-        int averageSalary = 0;
+        int averageSalary;
         for (Employee employee : employees) {
             sum = sum + employee.getSalary();
-            averageSalary = sum / employees.length;
         }
+        averageSalary = sum / employees.length;
         System.out.println("Средняя зарплата: " + averageSalary);
     }
 }
