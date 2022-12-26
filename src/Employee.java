@@ -1,12 +1,14 @@
+import java.util.Objects;
+
 public class Employee {
     private String fullName;
-    private int dept;
+    private String dept;
     private int salary;
     private final int id;
     static int count = 1;
 
 
-    public Employee(String fullName, int dept, int salary) {
+    public Employee(String fullName, String dept, int salary) {
         this.fullName = fullName;
         this.dept = dept;
         this.salary = salary;
@@ -18,7 +20,7 @@ public class Employee {
         return fullName;
     }
 
-    public int getDept() {
+    public String getDept() {
         return dept;
     }
 
@@ -30,7 +32,7 @@ public class Employee {
         return id;
     }
 
-    public void setDept(int dept) {
+    public void setDept(String dept) {
         this.dept = dept;
     }
 
@@ -43,6 +45,19 @@ public class Employee {
         return "id=" + id + ", ФИО: " + fullName +
                 ", отдел: " + dept +
                 ", зарплата: " + salary;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return salary == employee.salary && id == employee.id && fullName.equals(employee.fullName) && dept.equals(employee.dept);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, dept, salary, id);
     }
 }
 
