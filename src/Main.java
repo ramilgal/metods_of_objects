@@ -27,6 +27,19 @@ public class Main {
         calculateAverageSalary(employees);
         //Печать только ФИО Сотрудников
         printOnlyNamesOfEmployees(employees);
+
+        //Повышенная сложность:
+
+        //Метод проиндексировать зарплаты всех сотрудников
+        calculateSalaryPercent(employees, 5);
+        printAllEmployees(employees);
+        //Метод найти сотрудника с минимальной зарплатой по отделу
+        getSalaryMinimumInDept(employees, 5);
+        //Метод найти сотрудника с максимальной зарплатой по отделу
+        getSalaryMaximumInDept(employees, 4);
+        //Сумма затрат на зарплату по отделу (уже после того, как зарплату
+        // проиндексировали на процент)
+        calculateSumOfAllSalaryInDept(employees, 1);
     }
     //Метод распечатать всех сотрудников
     public static void printAllEmployees(Employee[] employees) {
@@ -82,5 +95,48 @@ public class Main {
         }
         averageSalary = sum / employees.length;
         System.out.println("Средняя зарплата: " + averageSalary);
+    }
+
+    //Повышенная сложность:
+
+    //Метод проиндексировать зарплаты всех сотрудников
+    public static void calculateSalaryPercent(Employee[] employees, int percent) {
+        for (Employee employee : employees) {
+            employee.setSalary(employee.getSalary()+employee.getSalary()*percent/100);
+        }
+    }
+    //Метод найти сотрудника с минимальной зарплатой по отделу
+    public static void getSalaryMinimumInDept(Employee[] employees, int dept) {
+        int salaryMinimumInDept = Integer.MAX_VALUE;
+                String person = null;
+        for (Employee employee : employees) {
+            if (employee.getDept() == dept && employee.getSalary() < salaryMinimumInDept) {
+                salaryMinimumInDept = employee.getSalary();
+                person = employee.getFullName();
+            }
+        }
+        System.out.println(dept + " отдел,"+ " минимальная зарплата: " + salaryMinimumInDept + ", сотрудник: " + person);
+    }
+    //Метод найти сотрудника с максимальной зарплатой по отделу
+    public static void getSalaryMaximumInDept(Employee[] employees, int dept) {
+        int salaryMaximumInDept = 0;
+        String person = null;
+        for (Employee employee : employees) {
+            if (employee.getDept() == dept && employee.getSalary() > salaryMaximumInDept) {
+                salaryMaximumInDept = employee.getSalary();
+                person = employee.getFullName();
+            }
+        }
+        System.out.println(dept + " отдел,"+ " Максимальная зарплата: " + salaryMaximumInDept + ", сотрудник: " + person);
+    }
+    //Метод найти сумму затрат на зарплату по отделу
+    public static void calculateSumOfAllSalaryInDept(Employee[] employees, int dept) {
+        int sum = 0;
+        for (Employee employee : employees) {
+            if (employee.getDept() == dept) {
+                sum = sum + employee.getSalary();
+            }
+        }
+        System.out.println("Сумма затрат на зарплату сотрудников "+ "по " + dept + " отделу: " + sum);
     }
 }
